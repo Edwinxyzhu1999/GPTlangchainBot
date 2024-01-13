@@ -1,0 +1,34 @@
+<html>
+<head>
+    <title>Your Page</title>
+</head>
+<body>
+<form id= "myForm" method = "POST">
+    <input name="text" id = "texti">
+    <input type="submit">
+</form>
+<script>
+    document.getElementById('myForm').onsubmit = function() {
+        var textInput = document.getElementById('texti').value;
+        console.log(textInput);
+        if (textInput.trim() === '') {
+            alert('The input cannot be empty!');
+            return false; // Prevents form submission
+        }
+        return true; // Allows form submission
+    };
+</script>
+
+<p id="chatlog">Chat Log</p>
+
+<script>
+    window.onload = function() {
+        // Assuming you passed 'text' from Flask
+        var newText = "{{ text }}";
+        console.log(newText);
+        newText = newText.replace(new RegExp("break", 'g'), "<br>");
+        document.getElementById('chatlog').innerHTML = newText;
+    }
+</script>
+</body>
+</html>
