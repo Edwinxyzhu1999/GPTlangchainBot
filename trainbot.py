@@ -52,7 +52,7 @@ ask for the correct answer and then acknowledge the correct answer.
 Question: {message}
 Reply:"""
 rag_prompt_custom = PromptTemplate.from_template(template)
-llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0)
+llm = ChatOpenAI(model_name="gpt-3.5-turbo-1106", temperature=0)
 
 # intial elements to store questions and history
 conversation_history = []
